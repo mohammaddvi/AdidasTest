@@ -14,13 +14,14 @@ ext.versions = [
         coreKtx                      : '1.0.2',
 
         //testing
-        junit                        : '4.13.2',
+        junit                        : '4.12',
         coroutinesTest               : "1.4.3",
         mockk                        : '1.11.0',
 
         //network
-        gson                         : '2.8.6',
-        okhttp                       : '4.9.0',
+        gson                         : '2.8.1',
+        okhttp                       : '3.12.1',
+        okhttpLogging                : '3.5.0',
         retrofit                     : '2.9.0',
         retrofitCoroutines           : '0.9.2',
         coroutines                   : '1.4.0',

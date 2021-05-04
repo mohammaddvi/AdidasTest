@@ -19,8 +19,9 @@ ext.libs = [
         okhttp                        : "com.squareup.okhttp3:okhttp:$versions.okhttp",
         retrofitGsonConverter         : "com.squareup.retrofit2:converter-gson:$versions.retrofit",
         retrofitCoroutines            : "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$versions.retrofitCoroutines",
-        gson                          : "com.google.code.gson:gson:$versions.gson",
+        gson                          : "com.squareup.retrofit2:converter-gson:$versions.gson",
         coroutines                    : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines",
+        loggingInterceptor            : "com.squareup.okhttp3:logging-interceptor:$versions.okhttpLogging",
 
         //DI
         koinScope                     : "org.koin:koin-androidx-scope:$versions.koin",

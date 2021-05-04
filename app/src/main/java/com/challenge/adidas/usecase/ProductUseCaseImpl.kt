@@ -1,22 +1,25 @@
 package com.challenge.adidas.usecase
 
+import android.util.Log
 import com.challenge.adidas.Product
 import com.challenge.adidas.datastore.ProductDataStore
 import com.challenge.adidas.repository.ProductRepository
 
 class ProductUseCaseImpl(
-    private val productDataStore: ProductDataStore,
-    private val productRepository: ProductRepository
+    private val productRepository: ProductRepository,
+    private val productDataStore: ProductDataStore
 ) : ProductUseCase {
-    override fun getProductsBySearch(search: String): List<Product> {
+    override suspend fun getProductsBySearch(search: String): List<Product> {
         TODO("Not yet implemented")
     }
 
-    override fun getProducts(): List<Product> {
-        TODO("Not yet implemented")
+    override suspend fun getProducts(): List<Product> {
+        return productRepository.getProducts().also {
+            productDataStore.updateProducts(it)
+        }
     }
 
-    override fun getProductById(id: String): Product {
-        TODO("Not yet implemented")
+    override suspend fun getProductById(id: String): Product {
+        return productRepository.getProductDetails(id)
     }
 }

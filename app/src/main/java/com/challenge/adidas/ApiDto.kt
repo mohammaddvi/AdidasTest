@@ -14,7 +14,7 @@ data class Product(
 
 @Keep
 data class Review(
-    val id: String,
+    val productId: String,
     val locale: String,
     val rating: Int,
     val imgUrl: String,
