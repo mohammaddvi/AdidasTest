@@ -1,0 +1,53 @@
+apply from: rootProject.file('gradle-script/dependencies-version.gradle')
+ext.libs = [
+
+        //andoroid
+        androidSdk                    : "com.google.android:android:$versions.androidSdk",
+
+        //kotlin
+        kotlin                        : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin",
+        coreKtx                       : "androidx.core:core-ktx:${versions.coreKtx}",
+        kotlinAndroidExtensionsRuntime: "org.jetbrains.kotlin:kotlin-android-extensions-runtime:$versions.kotlin",
+
+        //testing
+        junit                         : "junit:junit:$versions.junit",
+        coroutinesTest                : "org.jetbrains.kotlinx:kotlinx-coroutines-test:$versions.coroutinesTest",
+        mockk                         : "io.mockk:mockk:$versions.mockk",
+
+        //network
+        retrofit                      : "com.squareup.retrofit2:retrofit:$versions.retrofit",
+        okhttp                        : "com.squareup.okhttp3:okhttp:$versions.okhttp",
+        retrofitGsonConverter         : "com.squareup.retrofit2:converter-gson:$versions.retrofit",
+        retrofitCoroutines            : "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$versions.retrofitCoroutines",
+        gson                          : "com.google.code.gson:gson:$versions.gson",
+        coroutines                    : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines",
+
+        //DI
+        koinScope                     : "org.koin:koin-androidx-scope:$versions.koin",
+        koinViewModel                 : "org.koin:koin-androidx-viewmodel:$versions.koin",
+        koinTest                      : "org.koin:koin-test:$versions.koin",
+
+        //architecture
+        androidXFragment              : "androidx.fragment:fragment-ktx:$versions.androidXFragment",
+        navigationUI                  : "androidx.navigation:navigation-ui-ktx:$versions.androidArchitectureNavigation",
+        navigationFragment            : "androidx.navigation:navigation-fragment-ktx:$versions.androidArchitectureNavigation",
+        lifeCycleExtensions           : "androidx.lifecycle:lifecycle-extensions:$versions.androidArchitecture",
+        lifeCycleRuntime              : "androidx.lifecycle:lifecycle-runtime:$versions.androidArchitecture",
+        lifeCycleCompiler             : "androidx.lifecycle:lifecycle-compiler:$versions.androidArchitecture",
+        lifeCycleViewModel            : "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.androidArchitecture",
+        archTesting                   : "androidx.arch.core:core-testing:$versions.androidArchitectureTesting",
+
+        //UI
+        shimmerLayout                 : "com.facebook.shimmer:shimmer:$versions.shimmerLayout",
+        constraintLayout              : "androidx.constraintlayout:constraintlayout:$versions.constraintLayout",
+        glide                         : "com.github.bumptech.glide:glide:$versions.glide",
+        supportDesign                 : "com.google.android.material:material:$versions.materialSupport",
+        swipeRefreshLayout            : "androidx.swiperefreshlayout:swiperefreshlayout:$versions.cardViewSupport",
+
+]
+
+ext.gradlePlugins = [
+        kotlin                 : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
+        kotlinAndroidExtensions: "org.jetbrains.kotlin:kotlin-android-extensions:$versions.kotlin",
+        android                : "com.android.tools.build:gradle:$versions.android",
+        navigationSafeArgs     : "androidx.navigation:navigation-safe-args-gradle-plugin:$versions.navigationSafeArgs"]

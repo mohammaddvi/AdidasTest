@@ -1,0 +1,36 @@
+
+apply from: rootProject.file('gradle-script/dependencies-library.gradle')
+
+dependencies {
+
+    implementation libs.constraintLayout
+//    implementation libs.timber
+    implementation libs.supportDesign
+    implementation libs.retrofit
+    implementation libs.gson
+    implementation libs.glide
+
+    implementation libs.kotlin
+    implementation libs.lifeCycleExtensions
+    implementation libs.koinViewModel
+    implementation libs.koinScope
+    implementation libs.supportDesign
+    implementation libs.coroutines
+
+    implementation libs.coreKtx
+
+
+    //navigation
+
+    implementation libs.androidXFragment
+    implementation libs.navigationUI
+    implementation libs.navigationFragment
+    implementation libs.kotlinAndroidExtensionsRuntime
+
+    //test
+    testImplementation libs.archTesting
+    testImplementation libs.coroutinesTest
+    testImplementation libs.junit
+    testImplementation libs.archTesting
+    testImplementation libs.mockk
+}
