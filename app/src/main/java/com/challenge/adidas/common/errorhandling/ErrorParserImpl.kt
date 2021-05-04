@@ -11,6 +11,7 @@ class ErrorParserImpl : ErrorParser {
                 500 -> Error.InternalServerError.message
                 else -> Error.GeneralError.message
             }
+            else -> Error.GeneralError.message
         }
     }
 }

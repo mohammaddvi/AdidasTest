@@ -1,6 +1,5 @@
 package com.challenge.adidas.usecase
 
-import android.util.Log
 import com.challenge.adidas.Product
 import com.challenge.adidas.datastore.ProductDataStore
 import com.challenge.adidas.repository.ProductRepository

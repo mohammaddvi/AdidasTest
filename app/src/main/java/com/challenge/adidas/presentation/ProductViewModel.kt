@@ -3,7 +3,7 @@ package com.challenge.adidas.presentation
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.challenge.adidas.Product
+import com.challenge.adidas.network.Product
 import com.challenge.adidas.common.*
 import com.challenge.adidas.common.errorhandling.ErrorParser
 import com.challenge.adidas.usecase.ProductUseCase
@@ -12,7 +12,6 @@ import kotlinx.coroutines.launch
 class ProductViewModel(
     private val productUseCase: ProductUseCase,
     private val errorParser: ErrorParser
-//    coroutineDispatcherProvider: CoroutineDispatcherProvider
 ) : BaseViewModel() {
     private val _productsLiveData: MutableLiveData<LoadableData<List<Product>>> =
         MutableLiveData(NotLoaded)
@@ -23,8 +22,8 @@ class ProductViewModel(
     }
 
     private fun getProducts() {
-        viewModelScope.launch {
             _productsLiveData.value = Loading
+        viewModelScope.launch {
             runCatching {
                 productUseCase.getProducts()
             }.fold(onSuccess = {

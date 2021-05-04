@@ -6,8 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.challenge.adidas.Product
+import com.challenge.adidas.network.Product
 import com.challenge.adidas.R
 import com.challenge.adidas.common.load
 import kotlinx.android.synthetic.main.item_product.view.*

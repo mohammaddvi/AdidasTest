@@ -1,8 +1,5 @@
 package com.challenge.adidas
 
-import androidx.annotation.Keep
-
-@Keep
 data class Product(
     val id: String,
     val name: String,
@@ -12,10 +9,8 @@ data class Product(
     val reviews: List<Review>
 )
 
-@Keep
 data class Review(
     val productId: String,
-    val locale: String,
     val rating: Int,
     val imgUrl: String,
     val text: String
