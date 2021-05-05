@@ -12,8 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.challenge.adidas.R
-import com.challenge.adidas.common.Failed
-import com.challenge.adidas.common.Loaded
+import com.challenge.adidas.common.*
 import kotlinx.android.synthetic.main.item_product.*
 import kotlinx.android.synthetic.main.product_screen.*
 import kotlinx.android.synthetic.main.search_layout.*
@@ -59,8 +58,15 @@ class ProductScreen : Fragment(R.layout.product_screen) {
 
         viewmodel.productLiveData.observe(viewLifecycleOwner, Observer {
             when (it) {
-                is Loaded -> adapter.updateAdapter(it.data)
-                is Failed -> Toast.makeText(requireContext(), "problem", Toast.LENGTH_LONG).show()
+                is Loading -> productLoadingProgress.visible()
+                is Loaded -> {
+                    productLoadingProgress.gone()
+                    adapter.updateAdapter(it.data)
+                }
+                is Failed -> {
+                    productLoadingProgress.gone()
+                    Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
+                }
             }
         })
     }

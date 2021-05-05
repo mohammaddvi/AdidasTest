@@ -6,14 +6,14 @@ data class Product(
     val description: String,
     val price: String,
     val imgUrl: String?,
-    val averageReviewStar : Float,
+    val averageReviewStar: Float,
     val reviews: List<Review>
 )
 
 data class Review(
     val productId: String,
-    val locale: String,
+    val locale: String?,
     val rating: Int,
-    val imgUrl: String?,
+    val imgUrl: String? = null,
     val text: String
 )

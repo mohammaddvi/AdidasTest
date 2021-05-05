@@ -69,7 +69,7 @@ val fakeProducts: List<Product> = listOf(
         "shoes",
         "you can fly with this shoes",
         "10000",
-        "",
+        "",5f,
         shoesReviews
     ),
     Product(
@@ -78,6 +78,7 @@ val fakeProducts: List<Product> = listOf(
         "you can be hidden with this shirt you don`t want atleast try once",
         "20000",
         "",
+        5f,
         shirtReviews
     )
 )

@@ -8,7 +8,7 @@ sealed class Error {
             get() = "There is a problem please try later"
     }
 
-    object SocketTimeOut : Error() {
+    object InternetProblem : Error() {
         override val message: String
             get() = "Please check your internet"
     }

@@ -15,7 +15,7 @@ data class ProductDto(
 @Keep
 data class ReviewDto(
     val productId: String,
-    val locale: String,
+    val locale: String?,
     val rating: Int,
     val imgUrl: String?,
     val text: String

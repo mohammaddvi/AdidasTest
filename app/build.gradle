@@ -28,6 +28,10 @@ android {
     kotlinOptions { jvmTarget = "1.8" }
 
     buildTypes {
+        debug {
+            buildConfigField "String", "BASE_URL", "\"http://192.168.1.125:3001/\""
+            buildConfigField "String", "BASE_URL_2", "\"http://192.168.1.125:3002/\""
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'

@@ -16,6 +16,7 @@
         android:id="@+id/detailsNameItemText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/detailsItemImage" />
 
@@ -24,6 +25,7 @@
         android:id="@+id/detailsDescriptionItemText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/detailsNameItemText" />
 
@@ -31,15 +33,37 @@
         android:id="@+id/detailsPriceItemText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/detailsDescriptionItemText" />
+    <ProgressBar
+        android:id="@+id/detailsReviewLoadingProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@id/detailsReviewRecycler"
+        app:layout_constraintBottom_toBottomOf="@id/detailsReviewRecycler"
+        app:layout_constraintStart_toStartOf="@id/detailsReviewRecycler"
+        app:layout_constraintEnd_toEndOf="@id/detailsReviewRecycler"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/detailsReviewRecycler"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:padding="16dp"
+        app:layout_constraintBottom_toTopOf="@id/detilsAddReview"
         app:layout_constraintTop_toBottomOf="@id/detailsPriceItemText" />
 
+
+    <Button
+        android:id="@+id/detilsAddReview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:text="Add Review"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

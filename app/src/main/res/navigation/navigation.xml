@@ -17,12 +17,25 @@
 
     <fragment
         android:id="@+id/details_screen"
-        tools:layout="@layout/details_screen"
-        android:name="com.challenge.adidas.presentation.details.DetailsScreen">
+        android:name="com.challenge.adidas.presentation.details.DetailsScreen"
+        tools:layout="@layout/details_screen">
         <argument
             android:name="productId"
             app:argType="string" />
+        <action
+            android:id="@+id/action_details_screen_to_add_review_screen"
+            app:destination="@id/add_review_screen" />
+
     </fragment>
+
+    <dialog
+        android:id="@+id/add_review_screen"
+        android:name="com.challenge.adidas.presentation.details.AddReviewScreen"
+        tools:layout="@layout/add_review_screen">
+        <argument
+            android:name="productId"
+            app:argType="string" />
+    </dialog>
 
 
 </navigation>

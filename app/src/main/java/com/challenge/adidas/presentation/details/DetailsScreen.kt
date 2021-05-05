@@ -9,12 +9,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.challenge.adidas.R
-import com.challenge.adidas.common.Failed
-import com.challenge.adidas.common.Loaded
+import com.challenge.adidas.common.*
 import com.challenge.adidas.presentation.ProductViewModel
 import kotlinx.android.synthetic.main.details_screen.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
@@ -40,7 +40,7 @@ class DetailsScreen : Fragment(R.layout.details_screen) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         ViewCompat.setTransitionName(detailsItemImage, "image_${argument.productId}")
-        viewmodel.getDetails(argument.productId)
+        viewmodel.productDetailsRequested(argument.productId)
 
 
         val adapter = ReviewAdapter()
@@ -48,15 +48,28 @@ class DetailsScreen : Fragment(R.layout.details_screen) {
             LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
         detailsReviewRecycler.adapter = adapter
 
+        detilsAddReview.setOnClickListener {
+            findNavController().navigate(
+                DetailsScreenDirections.actionDetailsScreenToAddReviewScreen(argument.productId)
+            )
+        }
+
         viewmodel.detailsLiveData.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
             when (it) {
+                is Loading ->{
+                    detailsReviewLoadingProgress.visible()
+                }
                 is Loaded -> {
+                    detailsReviewLoadingProgress.gone()
                     detailsNameItemText.text = it.data.name
                     detailsDescriptionItemText.text = it.data.description
                     detailsPriceItemText.text = it.data.price
                     adapter.updateAdapter(it.data.reviews)
                 }
-                is Failed -> Toast.makeText(requireContext(), "problem", Toast.LENGTH_LONG).show()
+                is Failed -> {
+                    detailsReviewLoadingProgress.gone()
+                    Toast.makeText(requireContext(), "problem", Toast.LENGTH_LONG).show()
+                }
             }
         })
 

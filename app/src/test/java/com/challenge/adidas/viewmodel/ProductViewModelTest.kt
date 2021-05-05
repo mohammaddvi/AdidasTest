@@ -8,6 +8,7 @@ import com.challenge.adidas.common.errorhandling.ErrorParser
 import com.challenge.adidas.fakeProducts
 import com.challenge.adidas.fakeThrowable
 import com.challenge.adidas.presentation.ProductViewModel
+import com.challenge.adidas.repository.ProductRepository
 import com.challenge.adidas.usecase.ProductUseCase
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
@@ -23,6 +24,10 @@ class ProductViewModelTest {
 
     @RelaxedMockK
     lateinit var productUseClass: ProductUseCase
+
+
+    @RelaxedMockK
+    lateinit var productRepository: ProductRepository
 
     @RelaxedMockK
     lateinit var errorParser: ErrorParser
@@ -44,7 +49,8 @@ class ProductViewModelTest {
         unmockkAll()
     }
 
-    private fun createViewModel() = ProductViewModel(productUseClass, errorParser)
+    private fun createViewModel() =
+        ProductViewModel(productUseClass, productRepository,errorParser)
 
     @Test
     fun `when product data is fetched successfully, then state is updated with it`() {
@@ -121,7 +127,7 @@ class ProductViewModelTest {
                 }
 
                 val viewModel = createViewModel()
-                viewModel.getDetails("1")
+                viewModel.productDetailsRequested("1")
                 delay(300)
 
                 Assert.assertEquals(
@@ -147,7 +153,7 @@ class ProductViewModelTest {
                     fakeProducts[0]
                 }
                 val viewModel = createViewModel()
-                viewModel.getDetails("1")
+                viewModel.productDetailsRequested("1")
                 delay(200)
 
                 Assert.assertEquals(fakeProducts[0], viewModel.detailsLiveData.value?.data)
@@ -168,7 +174,7 @@ class ProductViewModelTest {
                 }
 
                 val viewModel = createViewModel()
-                viewModel.getDetails("1")
+                viewModel.productDetailsRequested("1")
 
                 Assert.assertEquals(Loading, viewModel.detailsLiveData.value)
             }

@@ -5,9 +5,11 @@ import com.challenge.adidas.common.errorhandling.ErrorParserImpl
 import com.challenge.adidas.common.network.AuthInterceptor
 import com.challenge.adidas.common.network.provideOkHttpClient
 import com.challenge.adidas.common.network.provideRetrofit
+import com.challenge.adidas.common.network.provideRetrofitV2
 import com.challenge.adidas.datastore.InMemoryProductDataStore
 import com.challenge.adidas.datastore.ProductDataStore
 import com.challenge.adidas.network.ProductApi
+import com.challenge.adidas.network.ReviewApi
 import com.challenge.adidas.presentation.ProductViewModel
 import com.challenge.adidas.repository.ProductRepository
 import com.challenge.adidas.repository.RemoteProductRepository
@@ -19,7 +21,7 @@ import retrofit2.create
 
 val productModule = module {
     factory<ProductRepository> {
-        RemoteProductRepository(get())
+        RemoteProductRepository(get(),get())
     }
     factory<ProductUseCase> { ProductUseCaseImpl(get(), get()) }
     single { AuthInterceptor() }
@@ -29,11 +31,14 @@ val productModule = module {
     single<ProductApi> {
         provideRetrofit(get()).create()
     }
+    single<ReviewApi> {
+        provideRetrofitV2(get()).create()
+    }
     factory<ErrorParser> { ErrorParserImpl() }
     single { provideOkHttpClient(get()) }
 
     viewModel {
-        ProductViewModel(get(), get())
+        ProductViewModel(get(), get(),get())
     }
 
 

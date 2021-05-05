@@ -19,19 +19,20 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/adidas_store"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="24sp"
-            android:textColor="@color/black"
             android:textStyle="bold" />
 
     </com.google.android.material.appbar.MaterialToolbar>
 
-    <include layout="@layout/search_layout"
+    <include
         android:id="@+id/productSearchLayout"
-        app:layout_constraintTop_toBottomOf="@id/productToolbar"
+        layout="@layout/search_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        app:layout_constraintTop_toBottomOf="@id/productToolbar" />
 
     <TextView
         android:id="@+id/productHeaderText"
@@ -45,6 +46,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/productSearchLayout" />
 
+    <ProgressBar
+        android:id="@+id/productLoadingProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/productRecyclerView"
+        app:layout_constraintEnd_toEndOf="@id/productRecyclerView"
+        app:layout_constraintStart_toStartOf="@id/productRecyclerView"
+        app:layout_constraintTop_toTopOf="@id/productRecyclerView" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/productRecyclerView"
         android:layout_width="match_parent"
@@ -52,9 +63,9 @@
         android:clickable="true"
         android:focusable="true"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/productHeaderText"
-        app:layout_constraintBottom_toBottomOf="parent"
         tools:listitem="@layout/item_product" />
 
 
