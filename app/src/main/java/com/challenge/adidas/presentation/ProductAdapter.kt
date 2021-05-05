@@ -3,6 +3,7 @@ package com.challenge.adidas.presentation
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -12,7 +13,7 @@ import com.challenge.adidas.R
 import com.challenge.adidas.common.load
 import kotlinx.android.synthetic.main.item_product.view.*
 
-class ProductAdapter(private val onClick: (Product) -> Unit) :
+class ProductAdapter(private val onClick: (Product,ImageView) -> Unit) :
     ListAdapter<Product, ProductAdapter.ProductViewHolder>(ProductDiffCallback) {
     private val items = mutableListOf<Product>()
 
@@ -35,7 +36,7 @@ class ProductAdapter(private val onClick: (Product) -> Unit) :
     override fun getItemCount() = items.size
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
-        holder.bind(items[position]) { onClick(items[position]) }
+        holder.bind(items[position]) { onClick(items[position],it) }
     }
 
     fun updateAdapter(newItems: List<Product>) {
@@ -45,8 +46,9 @@ class ProductAdapter(private val onClick: (Product) -> Unit) :
     }
 
     class ProductViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun bind(product: Product, onProductClicked: () -> Unit) {
-            ViewCompat.setTransitionName(itemView.productItemImage, "image_${product.id}")
+        fun bind(product: Product, onProductClicked: (ImageView) -> Unit) {
+
+            ViewCompat.setTransitionName(itemView.productItemImage, product.id)
             itemView.productNameItemText.text = product.name
             itemView.productDescriptionItemText.text = product.description
             itemView.productPriceItemText.text = String.format("%s %s","$",product.price)
@@ -55,7 +57,7 @@ class ProductAdapter(private val onClick: (Product) -> Unit) :
                 product.imgUrl
             )
             itemView.setOnClickListener {
-                onProductClicked()
+                onProductClicked(itemView.productItemImage)
             }
         }
     }

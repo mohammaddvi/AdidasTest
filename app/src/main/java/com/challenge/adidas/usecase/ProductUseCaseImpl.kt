@@ -21,6 +21,10 @@ class ProductUseCaseImpl(
     }
 
     override suspend fun getProductById(id: String): Product {
-        return productRepository.getProductDetails(id)
+        return productDataStore.products().first { it.id == id }.also {
+            productRepository.getProductDetails(id).also {
+                productDataStore.updateProduct(it)
+            }
+        }
     }
 }

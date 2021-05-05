@@ -1,7 +1,6 @@
 package com.challenge.adidas.datastore
 
 import com.challenge.adidas.Product
-import kotlinx.coroutines.flow.Flow
 
 class InMemoryProductDataStore : ProductDataStore {
     private val productsFlow: MutableList<Product> = mutableListOf()
@@ -13,5 +12,14 @@ class InMemoryProductDataStore : ProductDataStore {
     override fun updateProducts(products: List<Product>) {
         productsFlow.clear()
         productsFlow.addAll(products)
+    }
+
+    override fun updateProduct(product: Product) {
+        productsFlow.first { product.id == it.id }.copy(
+            name = product.name,
+            description = product.description,
+            price = product.price,
+            reviews = product.reviews
+        )
     }
 }

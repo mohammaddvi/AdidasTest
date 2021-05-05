@@ -21,10 +21,10 @@ class ProductViewModel(
     val productLiveData: LiveData<LoadableData<List<Product>>> = _productsLiveData
 
     private val _detailsLiveData: MutableLiveData<LoadableData<Product>> =
-        SingleLiveEvent()
+        MutableLiveData()
     val detailsLiveData: LiveData<LoadableData<Product>> = _detailsLiveData
 
-    private val _sendReviewLiveData: MutableLiveData<LoadableData<Review>> =
+    private val _sendReviewLiveData: SingleLiveEvent<LoadableData<Review>> =
         SingleLiveEvent()
     val sendReviewLiveData: LiveData<LoadableData<Review>> = _sendReviewLiveData
 

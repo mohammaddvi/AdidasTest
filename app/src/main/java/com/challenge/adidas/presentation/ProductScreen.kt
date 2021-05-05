@@ -25,20 +25,20 @@ class ProductScreen : Fragment(R.layout.product_screen) {
     private val adapter: ProductAdapter
 
     init {
-        adapter = ProductAdapter {
+        adapter = ProductAdapter {product,imageview ->
             val extras = FragmentNavigatorExtras(
-                productItemImage to "image_${it.id}"
+                imageview to product.imgUrl.toString()
             )
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 findNavController().navigate(
                     ProductScreenDirections.actionProductScreenToDetailsScreen(
-                        it.id
+                        product
                     ), extras
                 )
             } else {
                 findNavController().navigate(
                     ProductScreenDirections.actionProductScreenToDetailsScreen(
-                        it.id
+                        product
                     )
                 )
             }
@@ -50,7 +50,8 @@ class ProductScreen : Fragment(R.layout.product_screen) {
         searchEditText.clearFocus()
         productRecyclerView.requestFocus()
         searchEditText.addTextChangedListener {
-            viewmodel.userIsSearching(it.toString())
+            if (!it?.trim().isNullOrEmpty())
+                viewmodel.userIsSearching(it.toString())
         }
         val gridLayoutManger = GridLayoutManager(requireContext(), 2, RecyclerView.VERTICAL, false)
         productRecyclerView.layoutManager = gridLayoutManger

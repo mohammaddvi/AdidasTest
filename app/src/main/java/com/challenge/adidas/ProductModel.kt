@@ -1,5 +1,7 @@
 package com.challenge.adidas
 
+import java.io.Serializable
+
 data class Product(
     val id: String,
     val name: String,
@@ -8,7 +10,7 @@ data class Product(
     val imgUrl: String?,
     val averageReviewStar: Float,
     val reviews: List<Review>
-)
+):Serializable
 
 data class Review(
     val productId: String,
@@ -16,4 +18,4 @@ data class Review(
     val rating: Int,
     val imgUrl: String? = null,
     val text: String
-)
+):Serializable

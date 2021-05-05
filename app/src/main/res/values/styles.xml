@@ -5,12 +5,26 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
     </style>
 
     <style name="RatingBar" parent="Theme.AppCompat">
-        <item name="colorControlNormal">@color/ratingLightOrange</item>
-        <item name="colorControlActivated">@color/ratingOrange</item>
+        <item name="colorControlNormal">@color/lightOrange</item>
+        <item name="colorControlActivated">@color/orange</item>
         <item name="ratingBarStyle">?android:attr/ratingBarStyleSmall</item>
+    </style>
+
+    <style name="BigRatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/lightOrange</item>
+        <item name="colorControlActivated">@color/orange</item>
+    </style>
+
+    <style name="AppBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+
+    <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/background_bottom_sheet</item>
     </style>
 
 </resources>

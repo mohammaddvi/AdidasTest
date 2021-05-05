@@ -7,6 +7,6 @@
     <color name="backgroundGray">#F0F0F0</color>
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
-    <color name="ratingOrange">#e1701a</color>
-    <color name="ratingLightOrange">#f7a440</color>
+    <color name="orange">#e1701a</color>
+    <color name="lightOrange">#f7a440</color>
 </resources>

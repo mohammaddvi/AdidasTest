@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import com.challenge.adidas.R
@@ -21,6 +22,11 @@ class AddReviewScreen : BottomSheetDialogFragment() {
     private val viewmodel: ProductViewModel by sharedViewModel()
     private val argument: AddReviewScreenArgs by navArgs()
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setStyle(STYLE_NORMAL, R.style.AppBottomSheetDialogTheme)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -32,6 +38,7 @@ class AddReviewScreen : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         addReviewRatingbar.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
             addReviewRatingbar.rating = rating
         }
