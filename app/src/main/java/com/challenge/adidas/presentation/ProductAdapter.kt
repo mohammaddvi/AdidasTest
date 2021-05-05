@@ -48,7 +48,6 @@ class ProductAdapter(private val onClick: (Product,ImageView) -> Unit) :
     class ProductViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(product: Product, onProductClicked: (ImageView) -> Unit) {
 
-            ViewCompat.setTransitionName(itemView.productItemImage, product.id)
             itemView.productNameItemText.text = product.name
             itemView.productDescriptionItemText.text = product.description
             itemView.productPriceItemText.text = String.format("%s %s","$",product.price)

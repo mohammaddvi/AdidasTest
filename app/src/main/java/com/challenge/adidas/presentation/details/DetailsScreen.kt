@@ -11,35 +11,30 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.challenge.adidas.Product
 import com.challenge.adidas.R
 import com.challenge.adidas.common.*
 import com.challenge.adidas.presentation.ProductViewModel
 import kotlinx.android.synthetic.main.details_screen.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
-class DetailsScreen : Fragment(R.layout.details_screen) {
+class DetailsScreen : BaseFragment(R.layout.details_screen) {
     private val viewmodel: ProductViewModel by sharedViewModel()
     private val argument: DetailsScreenArgs by navArgs()
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.details_screen, container, false)
-        sharedElementReturnTransition =
-            TransitionInflater.from(context).inflateTransition(android.R.transition.move)
-
-        return view
+        return inflater.inflate(R.layout.details_screen, container, false).apply {
+            sharedElementReturnTransition =
+                TransitionInflater.from(context).inflateTransition(R.transition.move)
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        detailsItemImage.transitionName = argument.product.imgUrl.toString()
-        viewmodel.productDetailsRequested(argument.product.id)
-
+        viewmodel.productDetailsRequested(argument.productId)
 
         val adapter = ReviewAdapter()
         detailsReviewRecycler.layoutManager =
@@ -48,7 +43,7 @@ class DetailsScreen : Fragment(R.layout.details_screen) {
 
         detilsAddReview.setOnClickListener {
             findNavController().navigate(
-                DetailsScreenDirections.actionDetailsScreenToAddReviewScreen(argument.product.id)
+                DetailsScreenDirections.actionDetailsScreenToAddReviewScreen(argument.productId)
             )
         }
 
@@ -71,7 +66,5 @@ class DetailsScreen : Fragment(R.layout.details_screen) {
                 }
             }
         })
-
-
     }
 }

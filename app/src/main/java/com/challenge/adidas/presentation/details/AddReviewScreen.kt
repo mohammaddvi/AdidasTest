@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import com.challenge.adidas.R
@@ -55,7 +54,7 @@ class AddReviewScreen : BottomSheetDialogFragment() {
                 }
                 is Failed -> {
                     dismiss()
-                    Toast.makeText(requireContext(), "Sorry, try again", Toast.LENGTH_LONG).show()
+                    Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
                 }
             }
         })

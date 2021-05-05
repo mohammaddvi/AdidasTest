@@ -49,12 +49,12 @@
             app:layout_constraintTop_toTopOf="@id/productPriceView"
             tools:text="1000" />
 
-
         <ImageView
             android:id="@+id/productItemImage"
             android:layout_width="120dp"
             android:layout_height="140dp"
             android:layout_marginStart="10dp"
+            android:transitionName="productImage"
             android:layout_marginEnd="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

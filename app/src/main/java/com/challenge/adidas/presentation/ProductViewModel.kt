@@ -37,6 +37,7 @@ class ProductViewModel(
     fun sendReviewButtonClicked(id:String,review:Review) = sendReview(id,review)
     fun productDetailsRequested(id:String) = getDetails(id)
 
+
     private fun searchProduct(text: String) {
         viewModelScope.launch {
             runCatching {
@@ -48,6 +49,7 @@ class ProductViewModel(
             })
         }
     }
+
 
     private fun getProducts() {
         _productsLiveData.value = Loading
@@ -62,6 +64,7 @@ class ProductViewModel(
         }
     }
 
+
     private fun getDetails(id: String) {
         _detailsLiveData.value = Loading
         viewModelScope.launch {
@@ -74,6 +77,7 @@ class ProductViewModel(
             })
         }
     }
+
 
     private fun sendReview(id: String, review: Review) {
         _sendReviewLiveData.value = Loading
