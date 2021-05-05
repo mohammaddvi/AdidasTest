@@ -2,6 +2,7 @@ package com.challenge.adidas.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.challenge.adidas.Product
 import com.challenge.adidas.Review
@@ -15,7 +16,7 @@ class ProductViewModel(
     private val productUseCase: ProductUseCase,
     private val productRepository: ProductRepository,
     private val errorParser: ErrorParser
-) : BaseViewModel() {
+) : ViewModel() {
     private val _productsLiveData: MutableLiveData<LoadableData<List<Product>>> =
         MutableLiveData(NotLoaded)
     val productLiveData: LiveData<LoadableData<List<Product>>> = _productsLiveData
