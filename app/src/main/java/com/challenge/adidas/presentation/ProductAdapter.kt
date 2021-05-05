@@ -3,10 +3,11 @@ package com.challenge.adidas.presentation
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.challenge.adidas.network.Product
+import com.challenge.adidas.Product
 import com.challenge.adidas.R
 import com.challenge.adidas.common.load
 import kotlinx.android.synthetic.main.item_product.view.*
@@ -34,7 +35,7 @@ class ProductAdapter(private val onClick: (Product) -> Unit) :
     override fun getItemCount() = items.size
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
-        holder.bind(items[position])
+        holder.bind(items[position]) { onClick(items[position]) }
     }
 
     fun updateAdapter(newItems: List<Product>) {
@@ -44,11 +45,18 @@ class ProductAdapter(private val onClick: (Product) -> Unit) :
     }
 
     class ProductViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun bind(product: Product) {
+        fun bind(product: Product, onProductClicked: () -> Unit) {
+            ViewCompat.setTransitionName(itemView.productItemImage, "image_${product.id}")
             itemView.productNameItemText.text = product.name
             itemView.productDescriptionItemText.text = product.description
-            itemView.productPriceItemText.text = product.price
-            itemView.productItemImage.load(product.imgUrl)
+            itemView.productPriceItemText.text = String.format("%s %s","$",product.price)
+            itemView.productOveralRate.rating = product.averageReviewStar
+            itemView.productItemImage.load(
+                product.imgUrl
+            )
+            itemView.setOnClickListener {
+                onProductClicked()
+            }
         }
     }
 }

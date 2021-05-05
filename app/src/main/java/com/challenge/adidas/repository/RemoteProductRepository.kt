@@ -1,5 +1,6 @@
 package com.challenge.adidas.repository
 
+import android.util.Log
 import com.challenge.adidas.Product
 import com.challenge.adidas.network.ProductApi
 import com.challenge.adidas.toProductModel

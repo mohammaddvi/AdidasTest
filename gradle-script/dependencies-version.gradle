@@ -40,7 +40,7 @@ ext.versions = [
         materialSupport              : '1.2.0',
         materialProgress             : '1.6.1',
         glide                        : '4.12.0',
-        navigationSafeArgs           : '2.2.0-rc04',
+        navigationSafeArgs           : '2.3.2',
         constraintLayout             : '1.1.3',
         cardViewSupport              : '1.0.0',
 

@@ -9,7 +9,9 @@ class ProductUseCaseImpl(
     private val productDataStore: ProductDataStore
 ) : ProductUseCase {
     override suspend fun getProductsBySearch(search: String): List<Product> {
-        TODO("Not yet implemented")
+        return productDataStore.products().filter { product ->
+            product.name.contains(search.toLowerCase()) or product.description.contains(search.toLowerCase())
+        }
     }
 
     override suspend fun getProducts(): List<Product> {

@@ -1,4 +1,4 @@
-package com.challenge.adidas
+package com.challenge.adidas.di
 
 import com.challenge.adidas.common.errorhandling.ErrorParser
 import com.challenge.adidas.common.errorhandling.ErrorParserImpl

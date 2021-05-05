@@ -7,4 +7,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/ratingLightOrange</item>
+        <item name="colorControlActivated">@color/ratingOrange</item>
+        <item name="ratingBarStyle">?android:attr/ratingBarStyleSmall</item>
+    </style>
+
 </resources>

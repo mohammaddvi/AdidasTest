@@ -1,7 +1,5 @@
 package com.challenge.adidas
 
-import com.challenge.adidas.network.Product
-import com.challenge.adidas.network.Review
 
 val shoesReviews: List<Review> = listOf(
     Review(

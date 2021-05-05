@@ -9,11 +9,13 @@ fun ProductDto.toProductModel() = Product(
     description = this.description,
     price = this.price,
     imgUrl = this.imgUrl,
+    averageReviewStar = this.reviews.map { it.rating }.average().toFloat(),
     reviews = this.reviews.map { it.toReviewModel() }
 )
 
 fun ReviewDto.toReviewModel() = Review(
     productId = this.productId,
+    locale = this.locale,
     rating = this.rating,
     imgUrl = this.imgUrl,
     text = this.text

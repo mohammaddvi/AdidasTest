@@ -12,14 +12,13 @@
         <action
             android:id="@+id/action_product_screen_to_details_screen"
             app:destination="@id/details_screen" />
-
-
     </fragment>
 
 
     <fragment
         android:id="@+id/details_screen"
-        android:name="com.challenge.adidas.presentation.DetailsScreen">
+        tools:layout="@layout/details_screen"
+        android:name="com.challenge.adidas.presentation.details.DetailsScreen">
         <argument
             android:name="productId"
             app:argType="string" />

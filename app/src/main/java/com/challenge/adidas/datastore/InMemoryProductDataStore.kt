@@ -2,17 +2,16 @@ package com.challenge.adidas.datastore
 
 import com.challenge.adidas.Product
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.filterNotNull
 
-class InMemoryProductDataStore   : ProductDataStore {
-    private val productsFlow: MutableStateFlow<List<Product>?> = MutableStateFlow(null)
+class InMemoryProductDataStore : ProductDataStore {
+    private val productsFlow: MutableList<Product> = mutableListOf()
 
-    override fun products(): Flow<List<Product>> {
-        return productsFlow.filterNotNull()
+    override fun products(): List<Product> {
+        return productsFlow
     }
 
     override fun updateProducts(products: List<Product>) {
-        productsFlow.value = products
+        productsFlow.clear()
+        productsFlow.addAll(products)
     }
 }

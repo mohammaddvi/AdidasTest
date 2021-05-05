@@ -9,14 +9,9 @@ apply from: rootProject.file('gradle-script/dependencies-library.gradle')
     }
     dependencies {
         classpath gradlePlugins.android
-//        classpath gradlePlugins.gradleAptPlugin
         classpath gradlePlugins.kotlin
         classpath gradlePlugins.kotlinAndroidExtensions
-//        classpath gradlePlugins.googleServices
         classpath gradlePlugins.navigationSafeArgs
-
-        // NOTE: Do not place your application dependencies.gradle-version.gradle here; they belong
-        // in the individual module build.gradle files
     }
 }
 
