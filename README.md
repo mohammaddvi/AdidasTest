@@ -1,5 +1,5 @@
 # AdidasTest
->A simple store project that including list of products,search on products, details of product and submit a review.
+>A simple store project that includes a list of products, search on products, details of the product, and review submission.
 
 
 ## Summary <br/>
