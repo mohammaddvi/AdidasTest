@@ -13,6 +13,7 @@
 ![alt text](https://uploadkon.ir/uploads/c84b06_21Screen-Shot-1400-02-16-at-09-48-44.png)
 
 ## Prerequisites <br/>
+#### To build this project you need the following:
 - Download [Docker](https://www.docker.com/get-started).<br/>
 - Download [Gradle](https://gradle.org/install/).<br/>
 - Download [JDK 1.8](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html).
