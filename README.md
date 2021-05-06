@@ -21,7 +21,7 @@
 #### To Build this project follow these steps: <br/>
 1. Git clone [Docker Image](https://bitbucket.org/adichallenge/product-reviews-docker-composer.git)<br/>
 2. Go to directory<br/>
-3. Run ``` docket-compose up``` <br/> 
+3. Run ``` docker-compose up``` <br/> 
 4. Change Urls in gradle file of this project to your ip address<br/>
 5. Finish
 
