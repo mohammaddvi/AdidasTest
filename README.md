@@ -8,6 +8,10 @@
 ![alt text](https://uploadkon.ir/uploads/8bd705_21Screenshot-20210505-220624.jpeg)
 ![alt text](https://uploadkon.ir/uploads/342f05_21Screenshot-20210505-220630.jpeg)
 
+## Structure <br/>
+#### The structure of application is based on MVVM architecture pattern: <br/>
+![alt text](https://uploadkon.ir/uploads/c84b06_21Screen-Shot-1400-02-16-at-09-48-44.png)
+
 ## Prerequisites <br/>
 - Download [Docker](https://www.docker.com/get-started).<br/>
 - Download [Gradle](https://gradle.org/install/).<br/>
