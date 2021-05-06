@@ -27,7 +27,7 @@
 1. Git clone [Docker Image](https://bitbucket.org/adichallenge/product-reviews-docker-composer.git)<br/>
 2. Go to directory<br/>
 3. Run ``` docker-compose up``` <br/> 
-4. Change Urls in gradle file of this project to your with address<br/>
+4. Change Urls in gradle file ```build.gradle(:app)``` with your local ip address<br/>
 5. Finish
 
 ## Gradle <br/>
